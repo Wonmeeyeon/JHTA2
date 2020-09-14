@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.jhta.dao.BoardDao">
+
+	<insert id="insertBoard" parameterType="Board">
+		insert into spring_free_boards
+   		 	(BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_PASSWORD, BOARD_CONTENT, BOARD_FILENAME)
+		values
+    		(spring_board_seq.nextval, #{title}, #{writer}, #{password}, #{content}, #{filename} )
+	</insert>
+	
+	<select id="selectBoards" resultType="Board">
+		select BOARD_LIKES 		as likes, 
+			   BOARD_PASSWORD 	as password, 
+			   BOARD_CONTENT 	as content, 
+			   BOARD_FILENAME 	as filename, 
+			   BOARD_DELETED 	as deleted,
+        	   BOARD_NO 		as no,
+        	   BOARD_WRITER 	as writer, 
+        	   BOARD_TITLE 		as title, 
+        	   BOARD_CREATED_DATE 	as createdDate, 
+        	   BOARD_UPDATE_DATE 	as updateDate, 
+        	   BOARD_DELETED_DATE 	as deletedDate
+		from 
+				spring_free_boards
+		where 
+				board_deleted = 'N'
+		order by 
+				board_no asc
+	</select>
+		
+	<select id="selectBoard" parameterType="long" resultType="Board">
+		select BOARD_LIKES 		as likes, 
+			   BOARD_PASSWORD 	as password, 
+			   BOARD_CONTENT 	as content, 
+			   BOARD_FILENAME 	as filename, 
+			   BOARD_DELETED 	as deleted,
+        	   BOARD_NO 		as no,
+        	   BOARD_WRITER 	as writer, 
+        	   BOARD_TITLE 		as title, 
+        	   BOARD_CREATED_DATE 	as createdDate, 
+        	   BOARD_UPDATE_DATE 	as updateDate, 
+        	   BOARD_DELETED_DATE 	as deletedDate
+		from 
+				spring_free_boards
+		where 
+				BOARD_NO = #{value}
+	</select>
+	
+	<update id="updateBoard" parameterType="Board">
+		update 
+			spring_free_boards
+		set
+			board_title = #{title},
+			board_content = #{content},
+			board_filename = #{filename},
+			board_likes = #{likes},
+			board_deleted = #{deleted},
+			board_update_date = #{updateDate},
+			board_deleted_date = #{deletedDate}
+		where
+			board_no = #{no}
+	</update>
+	
+
+
+</mapper>

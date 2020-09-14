@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.jhta.dao.ProductDao">
+
+	
+	<insert id="insertProduct" parameterType="Product">
+		insert into spring_products
+			(PRODUCT_NO,
+			CATEGORY_ID,
+			PRODUCT_NAME,
+			PRODUCT_PRICE,
+			PRODUCT_DISCOUNT_PRICE)
+		values
+			(spring_product_seq.nextval, #{category.id}, #{name}, #{price}, #{discountPrice})
+	</insert>
+	
+	<select id="getAllProducts" resultType="Product">
+		select 
+			PRODUCT_NO                 as no,
+			CATEGORY_ID                as "category.id",   
+			PRODUCT_NAME               as name,
+			PRODUCT_PRICE              as price,
+			PRODUCT_DISCOUNT_PRICE     as discountPrice,
+			PRODUCT_STOCK              as stock,        
+			PRODUCT_CREATED_DATE       as crestedDate
+		from
+			spring_products
+	    order by 
+	        product_no desc
+	
+	</select>
+	
+	<select id="getProductByCategoryId" parameterType="string" resultType="Product">
+		select 
+			PRODUCT_NO                 as no,
+			CATEGORY_ID                as "category.id",   
+			PRODUCT_NAME               as name,
+			PRODUCT_PRICE              as price,
+			PRODUCT_DISCOUNT_PRICE     as discountPrice,
+			PRODUCT_STOCK              as stock,        
+			PRODUCT_CREATED_DATE       as crestedDate
+		from
+			spring_products
+	    where
+	        category_id = #{value}
+	    order by
+	    	product_no desc
+	</select>
+	
+	<select id="getProductByNo" parameterType="long" resultType="Product">
+		select 
+			PRODUCT_NO                 as no,
+			CATEGORY_ID                as "category.id",   
+			PRODUCT_NAME               as name,
+			PRODUCT_PRICE              as price,
+			PRODUCT_DISCOUNT_PRICE     as discountPrice,
+			PRODUCT_STOCK              as stock,        
+			PRODUCT_CREATED_DATE       as crestedDate
+		from
+			spring_products
+	    where
+	        product_no = #{value}
+	    
+	</select>
+	
+	<update id="updateProduct">
+		update
+			spring_products
+		set
+			product_name = #{name},
+			product_price = #{price},
+			product_discount_price = #{discountPrice},
+			product_stock = #{stock}
+		where 
+			product_no =#{no}
+	</update>
+	
+	
+	
+	
+
+
+</mapper>

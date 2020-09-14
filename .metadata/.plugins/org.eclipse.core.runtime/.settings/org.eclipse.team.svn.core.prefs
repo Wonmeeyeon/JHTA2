@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/a0af5032b1cb001a152de831f9799733=a0af5032b1cb001a152de831f9799733;https\://localhost/svn/lecture/spring-pom;https\://localhost/svn/lecture/spring-pom;branches;tags;trunk;true;;;;false;;;0
+repositories/e00efa736cdb001a1646c7d72250df43=e00efa736cdb001a1646c7d72250df43;https\://192.168.10.65/svn/repo2;https\://192.168.10.65/svn/repo2;branches;tags;trunk;true;326aa274-c5f9-8b48-81b2-3458635fd096;https\://192.168.10.65/svn/repo2;;false;;;0

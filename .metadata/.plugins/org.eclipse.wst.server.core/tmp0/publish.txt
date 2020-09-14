@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Aug 27 19:58:41 KST 2020
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\JHTA\\.m2\\repository\\org\\springframework\\spring-web\\4.3.27.RELEASE\\spring-web-4.3.27.RELEASE.jar=WEB-INF/lib/spring-web-4.3.27.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\JHTA\\.m2\\repository\\org\\springframework\\spring-web\\4.3.28.RELEASE\\spring-web-4.3.28.RELEASE.jar=WEB-INF/lib/spring-web-4.3.28.RELEASE.jar

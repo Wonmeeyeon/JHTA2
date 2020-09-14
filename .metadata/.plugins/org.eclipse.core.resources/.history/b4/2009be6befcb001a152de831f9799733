@@ -1,0 +1,25 @@
+package kr.co.jhta.di.service.step8;
+
+import java.util.Map;
+
+import kr.co.jhta.di.service.MessageSender;
+import kr.co.jhta.di.service.step7.UserService;
+
+public class NoticeServiceUsingMap implements NoticeService{
+ 
+	private Map<String, MessageSender> messageSenders;
+	private UserService userService;
+	
+	public void setMessageSenders(Map<String, MessageSender> messageSenders) {
+		this.messageSenders = messageSenders;
+	}
+	
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public void notice(String dept, String subject, String content) {
+		
+		
+	}
+}
